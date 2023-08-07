@@ -6,6 +6,7 @@ IFNOTBLANK=LAMBDA(test,if_not_blank,IF(test="",test,if_not_blank))
 IFNOTBLANK_ELSE=LAMBDA(test,if_not_blank,else,IF(test="",else,if_not_blank))
 IFPROPER=LAMBDA(text,if_true,if_false,IF(EXACT(PROPER(text),text),if_true,if_false))
 MAXWORDS=LAMBDA(range,MAX(WORDCOUNT(range)))
+STRINGS_TO_WORDARRAY=LAMBDA(text_range,LET(x,text_range,maxwords,MAXWORDS(x),IFERROR(CHOOSECOLS(TEXTBEFORE(TEXTAFTER(" "&x," ",SEQUENCE(,MAX(LEN(x))))&" "," "),SEQUENCE(,maxwords,1)),"")))
 WORDCOUNT=LAMBDA(text,LEN(TRIM(text))-LEN(SUBSTITUTE(text," ",""))+1)
 
 Task-specific formulas:
