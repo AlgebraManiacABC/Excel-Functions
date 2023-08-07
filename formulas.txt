@@ -5,6 +5,7 @@ IFBLANK_ELSE=LAMBDA(test,if_blank,else,IF(test="",if_blank,else))
 IFNOTBLANK=LAMBDA(test,if_not_blank,IF(test="",test,if_not_blank))
 IFNOTBLANK_ELSE=LAMBDA(test,if_not_blank,else,IF(test="",else,if_not_blank))
 IFPROPER=LAMBDA(text,if_true,if_false,IF(EXACT(PROPER(text),text),if_true,if_false))
+MAXWORDS=LAMBDA(range,MAX(WORDCOUNT(range)))
 WORDCOUNT=LAMBDA(text,LEN(TRIM(text))-LEN(SUBSTITUTE(text," ",""))+1)
 
 Task-specific formulas:
