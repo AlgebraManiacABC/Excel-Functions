@@ -8,6 +8,7 @@ IFPROPER=LAMBDA(text,if_true,if_false,IF(EXACT(PROPER(text),text),if_true,if_fal
 IFZERO=LAMBDA(test,if_zero,IF(test=0,if_zero,test))
 IFZERO_ELSE=LAMBDA(test,if_zero,else,IF(test=0,if_zero,else))
 MAXWORDS=LAMBDA(range,MAX(WORDCOUNT(range)))
+RUNNINGSUM=LAMBDA(range,SCAN(0,range,LAMBDA(x,y,x+y)))
 STRINGS_TO_WORDARRAY=LAMBDA(text_range,LET(x,text_range,maxwords,MAXWORDS(x),IFERROR(CHOOSECOLS(TEXTBEFORE(TEXTAFTER(" "&x," ",SEQUENCE(,MAX(LEN(x))))&" "," "),SEQUENCE(,maxwords,1)),"")))
 WORDCOUNT=LAMBDA(text,IF(LEN(text)=0,0,LEN(TRIM(text))-LEN(SUBSTITUTE(text," ",""))+1))
 
