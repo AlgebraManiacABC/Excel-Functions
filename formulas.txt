@@ -1,5 +1,8 @@
 AGE=LAMBDA(birthdate,TRUNC((TODAY()-birthdate)/365.25))
 COUNTNOTBLANK=LAMBDA(range,ROWS(range)*COLUMNS(range)-COUNTBLANK(range))
+GETRANGEH=LAMBDA(start,cell_count,OFFSET(start,0,0,0,cell_count))
+GETRANGEV=LAMBDA(start,cell_count,OFFSET(start,0,0,cell_count))
+GETRANGEX=LAMBDA(start,height,width,OFFSET(start,0,0,height,width))
 IFBLANK=LAMBDA(test,if_blank,IF(test="",if_blank,test))
 IFBLANK_ELSE=LAMBDA(test,if_blank,else,IF(test="",if_blank,else))
 IFNOTBLANK=LAMBDA(test,if_not_blank,IF(test="",test,if_not_blank))
