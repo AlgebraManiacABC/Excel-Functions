@@ -1,6 +1,6 @@
 AGE=LAMBDA(birthdate,TRUNC((TODAY()-birthdate)/365.25))
 COUNTNOTBLANK=LAMBDA(range,ROWS(range)*COLUMNS(range)-COUNTBLANK(range))
-FLATTEN=LAMBDA(start,height,width,IFBLANK(INDEX(GETRANGEX(start,height,width),GETROWINDICES(height,width),GETCOLUMNINDICES(height,width)),""))
+FLATTEN=LAMBDA(array,remove_blanks,by_column,LET(f,TOCOL(array,0,by_column),IF(remove_blanks,FILTER(f,f<>""),f)))
 GETCOLUMNINDICES=LAMBDA(height,width,FLOOR.MATH(SEQUENCE(height*width,,1,1/height)))
 GETRANGEH=LAMBDA(start,cell_count,OFFSET(start,0,0,0,cell_count))
 GETRANGEV=LAMBDA(start,cell_count,OFFSET(start,0,0,cell_count))
