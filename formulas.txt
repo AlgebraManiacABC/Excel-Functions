@@ -14,6 +14,8 @@ IFPROPER=LAMBDA(text,if_true,if_false,IF(EXACT(PROPER(text),text),if_true,if_fal
 IFZERO=LAMBDA(test,if_zero,IF(test=0,if_zero,test))
 IFZERO_ELSE=LAMBDA(test,if_zero,else,IF(test=0,if_zero,else))
 MAXWORDS=LAMBDA(range,MAX(WORDCOUNT(range)))
+ONLYEVEN=LAMBDA(array,INDEX(array,MAKEARRAY(ROWS(array)/2,1,LAMBDA(row,col,row*2))))
+ONLYODD=LAMBDA(array,INDEX(array,MAKEARRAY(ROWS(array)/2,1,LAMBDA(row,col,(row*2)-1))))
 ORDERED_SET_OF=LAMBDA(array,SORT(SET_OF(array)))
 REMOVEBLANK=LAMBDA(array,LET(f,TOCOL(array),FILTER(f,f<>"")))
 RUNNINGSUM=LAMBDA(range,SCAN(0,range,LAMBDA(x,y,x+y)))
